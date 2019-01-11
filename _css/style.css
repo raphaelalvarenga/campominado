@@ -21,4 +21,9 @@
 #tblCampo td {
     border-style: solid;
     padding: 16px;
+    cursor: pointer;
+}
+
+#tblCampo td:hover {
+    background-color: #aaa;
 }
