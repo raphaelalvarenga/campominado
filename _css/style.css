@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+#divJanela {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+
+#tblCampo {
+    text-align: center;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+#tblCampo td {
+    border-style: solid;
+    padding: 16px;
+}
