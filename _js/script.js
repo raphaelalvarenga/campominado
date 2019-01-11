@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var html = "";
     var celula = 0;
-    var arrayCampos = [];
+    var vetorCampos = [];
     var objCampos = {};
     var totalDeCelulas = 100;
     var totalDeMinas = 30;
@@ -32,7 +32,7 @@ $(document).ready(function() {
                 temBomba: true
             };
         }
-        arrayCampos.push(objCampos);
+        vetorCampos.push(objCampos);
         objCampos = {};
     }
     
@@ -40,10 +40,10 @@ $(document).ready(function() {
 //    for (var x = 0; x < 10; x++) {
 //        html += "<tr>";
 //        for (var y = 0; y < 10; y++) {
-//            if (arrayCampos[celula].temBomba == true) {
+//            if (vetorCampos[celula].temBomba == true) {
 //                html += "<td><span style = 'color: red'>X</span></td>";
 //            } else {
-//                html += "<td>" + arrayCampos[celula].indice + "</td>";
+//                html += "<td>" + vetorCampos[celula].indice + "</td>";
 //            }
 //            celula++;
 //        }
