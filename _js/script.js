@@ -53,11 +53,17 @@ $(document).ready(function() {
     for (var x = 0; x < 10; x++) {
         html += "<tr>";
         for (var y = 0; y < 10; y++) {
-            html += "<td></td>";
+            html += "<td id = '" + celula + "'></td>";
+            celula++;
         }
         html += "</tr>";
     }
     
     $("#tblCampo").html(html);
+    
+    $("#tblCampo td").click(function() {
+        console.log($(this).attr("id"));
+    });
+    
     
 });
