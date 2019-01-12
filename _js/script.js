@@ -17,7 +17,6 @@ $(document).ready(function() {
             campoSorteado = parseInt(Math.random() * 100);
         }
         celulasComMinas.push(campoSorteado);
-
     }
     
     
@@ -44,7 +43,7 @@ $(document).ready(function() {
         html += "<tr>";
         for (var y = 0; y < 10; y++) {
             if (vetorCampos[celula].temBomba == true) {
-                html += "<td id = 'td" + celula + "'></td>";
+                html += "<td id = 'td" + celula + "'>X</td>";
             } else {
                 html += "<td id = 'td" + celula + "'></td>";
             }
@@ -53,23 +52,18 @@ $(document).ready(function() {
         html += "</tr>";
     }
     $("#tblCampo").html(html);
-    console.log($("#td1").text());
+
     celula = 0;
     
     //Popula as tags <td>
     for (var x = 0; x < 100; x++) {
         
-        //Se tiver bombas
-        if (vetorCampos[x].temBomba == true) {
-            $("#td" + x).text("X").css("backgroundColor", "red");
-        }
-        
         //Se não tiver bombas
-        else {
+        if (vetorCampos[x].temBomba == false) {
             var linha = $("#td" + x).parent().index();
             var coluna = $("#td" + x).index();
             var regiao = "";
-            
+
             if (linha == 0 && coluna == 0) {//É a quina superior esquerda?
                 regiao = "quinaSuperiorEsquerda";
             } else if (linha == 0 && coluna == 9) {//É a quina superior direita?
@@ -89,9 +83,8 @@ $(document).ready(function() {
             } else {
                 regiao = "campoDoMeio";
             }
-            
+
             camposSemBombas(regiao);
-            
         }
     }
     
@@ -113,104 +106,191 @@ $(document).ready(function() {
         //É a quina superior esquerda?
         switch(regiao) {
             case "quinaSuperiorEsquerda":
-                console.log($("#td1").text());
-                console.log($("#td10").text());
-                console.log($("#td11").text());
-                
-                if ($("#td" + indice5).text == "X") {
+                if ($("#td" + indice5).text() == "X") {
                     bombasEmVolta++;
                 }
                 
-                if ($("#td" + indice7).text == "X") {
+                if ($("#td" + indice7).text() == "X") {
                     bombasEmVolta++;
                 }
                 
-                if ($("#td" + indice8).text == "X") {
+                if ($("#td" + indice8).text() == "X") {
                     bombasEmVolta++;
                 }
-                
-//                console.log("Campo 0: " + bombasEmVolta + " em volta");
-//                console.log("Testou quina superior esquerda");
+                $("#td" + x).text(bombasEmVolta);
                 break;
             
             case "quinaSuperiorDireita":
-//                console.log("Testou quina superior direita");
+                if ($("#td" + indice4).text() == "X") {
+                    bombasEmVolta++;
+                }
+                
+                if ($("#td" + indice6).text() == "X") {
+                    bombasEmVolta++;
+                }
+                
+                if ($("#td" + indice7).text() == "X") {
+                    bombasEmVolta++;
+                }
+                $("#td" + x).text(bombasEmVolta);
                 break;
                 
             case "quinaInferiorEsquerda":
-//                console.log("Testou quina inferior esquerda");
+                if ($("#td" + indice2).text() == "X") {
+                    bombasEmVolta++;
+                }
+                
+                if ($("#td" + indice3).text() == "X") {
+                    bombasEmVolta++;
+                }
+                
+                if ($("#td" + indice5).text() == "X") {
+                    bombasEmVolta++;
+                }
+                $("#td" + x).text(bombasEmVolta);
                 break;
                 
             case "quinaInferiorDireita":
-//                console.log("Testou quina inferior direita");
+                if ($("#td" + indice1).text() == "X") {
+                    bombasEmVolta++;
+                }
+
+                if ($("#td" + indice2).text() == "X") {
+                    bombasEmVolta++;
+                }
+
+                if ($("#td" + indice4).text() == "X") {
+                    bombasEmVolta++;
+                }
+                $("#td" + x).text(bombasEmVolta);
                 break;
                 
             case "primeiraLinha":
-//                console.log("Testou primeira linha");
+                if ($("#td" + indice4).text() == "X") {
+                    bombasEmVolta++;
+                }
+
+                if ($("#td" + indice5).text() == "X") {
+                    bombasEmVolta++;
+                }
+
+                if ($("#td" + indice6).text() == "X") {
+                    bombasEmVolta++;
+                }
+                
+                if ($("#td" + indice7).text() == "X") {
+                    bombasEmVolta++;
+                }
+
+                if ($("#td" + indice8).text() == "X") {
+                    bombasEmVolta++;
+                }
+                $("#td" + x).text(bombasEmVolta);
                 break;
                 
             case "ultimaLinha":
-//                console.log("Testou última linha");
+                if ($("#td" + indice1).text() == "X") {
+                    bombasEmVolta++;
+                }
+
+                if ($("#td" + indice2).text() == "X") {
+                    bombasEmVolta++;
+                }
+
+                if ($("#td" + indice3).text() == "X") {
+                    bombasEmVolta++;
+                }
+                
+                if ($("#td" + indice4).text() == "X") {
+                    bombasEmVolta++;
+                }
+
+                if ($("#td" + indice5).text() == "X") {
+                    bombasEmVolta++;
+                }
+                $("#td" + x).text(bombasEmVolta);
                 break;
                 
             case "primeiraColuna":
-//                console.log("Testou primeira coluna");
+                if ($("#td" + indice2).text() == "X") {
+                    bombasEmVolta++;
+                }
+
+                if ($("#td" + indice3).text() == "X") {
+                    bombasEmVolta++;
+                }
+
+                if ($("#td" + indice5).text() == "X") {
+                    bombasEmVolta++;
+                }
+                
+                if ($("#td" + indice7).text() == "X") {
+                    bombasEmVolta++;
+                }
+
+                if ($("#td" + indice8).text() == "X") {
+                    bombasEmVolta++;
+                }
+                $("#td" + x).text(bombasEmVolta);
                 break;
                 
             case "ultimaColuna":
-//                console.log("Testou última coluna");
+                if ($("#td" + indice1).text() == "X") {
+                    bombasEmVolta++;
+                }
+
+                if ($("#td" + indice2).text() == "X") {
+                    bombasEmVolta++;
+                }
+
+                if ($("#td" + indice4).text() == "X") {
+                    bombasEmVolta++;
+                }
+                
+                if ($("#td" + indice6).text() == "X") {
+                    bombasEmVolta++;
+                }
+
+                if ($("#td" + indice7).text() == "X") {
+                    bombasEmVolta++;
+                }
+                $("#td" + x).text(bombasEmVolta);
                 break;
                 
             case "campoDoMeio":
-//                console.log("Testou campo do meio");
+                if ($("#td" + indice1).text() == "X") {
+                    bombasEmVolta++;
+                }
+
+                if ($("#td" + indice2).text() == "X") {
+                    bombasEmVolta++;
+                }
+
+                if ($("#td" + indice3).text() == "X") {
+                    bombasEmVolta++;
+                }
+                
+                if ($("#td" + indice4).text() == "X") {
+                    bombasEmVolta++;
+                }
+
+                if ($("#td" + indice5).text() == "X") {
+                    bombasEmVolta++;
+                }
+                
+                if ($("#td" + indice6).text() == "X") {
+                    bombasEmVolta++;
+                }
+                
+                if ($("#td" + indice7).text() == "X") {
+                    bombasEmVolta++;
+                }
+
+                if ($("#td" + indice8).text() == "X") {
+                    bombasEmVolta++;
+                }
+                $("#td" + x).text(bombasEmVolta);
                 break;
         }
-        
-        //É a quina superior direita?
-        
-        
-        //É a quina inferior esquerda?
-        
-        
-        //É a quina inferior direita?
-        
-        
-        //É a primeira linha?
-        
-        //É a última linha?
-        
-        //É a primeira coluna?
-        
-        //É a última coluna?
-        
-        
-        
-        
-        
-        
-        
-        
-        //Caso seja um campo que está no meio
-//                var bombasEmVolta = 0;
-//                var indiceAtual = $(this).attr("id");
-//
-//                indiceAtual = indiceAtual.replace("td", "");
-//
-//                for (var x = -11; x < -8; x++) {
-//                    var indiceAnterior = parseInt(indiceAtual) + x;
-//
-//                    if (indiceAnterior >= 0) {
-//                        if (vetorCampos[indiceAnterior].temBomba == true) {
-//                            bombasEmVolta++;
-//                        }
-//                    }
-//                }
-//
-//                for (var x = -1; x < 2; x + 2) {
-//
-//                }
-
     }
-    
-    
 });
