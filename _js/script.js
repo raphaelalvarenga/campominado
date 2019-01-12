@@ -51,9 +51,9 @@ $(document).ready(function() {
             celula++;
         }
         html += "</tr>";
-        $("#tblCampo").html(html);
     }
-
+    $("#tblCampo").html(html);
+    console.log($("#td1").text());
     celula = 0;
     
     //Popula as tags <td>
