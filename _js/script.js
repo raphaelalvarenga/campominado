@@ -43,7 +43,7 @@ $(document).ready(function() {
         html += "<tr>";
         for (var y = 0; y < 10; y++) {
             if (vetorCampos[celula].temBomba == true) {
-                html += "<td id = 'td" + celula + "'>X</td>";
+                html += "<td id = 'td" + celula + "'><span class = 'textosCampos'>X</span></td>";
             } else {
                 html += "<td id = 'td" + celula + "'></td>";
             }
@@ -117,7 +117,7 @@ $(document).ready(function() {
                 if ($("#td" + indice8).text() == "X") {
                     bombasEmVolta++;
                 }
-                $("#td" + x).text(bombasEmVolta);
+                $("#td" + x).html("<span class = 'textosCampos'>" + bombasEmVolta + "</span>");
                 break;
             
             case "quinaSuperiorDireita":
@@ -132,7 +132,7 @@ $(document).ready(function() {
                 if ($("#td" + indice7).text() == "X") {
                     bombasEmVolta++;
                 }
-                $("#td" + x).text(bombasEmVolta);
+                $("#td" + x).html("<span class = 'textosCampos'>" + bombasEmVolta + "</span>");
                 break;
                 
             case "quinaInferiorEsquerda":
@@ -147,7 +147,7 @@ $(document).ready(function() {
                 if ($("#td" + indice5).text() == "X") {
                     bombasEmVolta++;
                 }
-                $("#td" + x).text(bombasEmVolta);
+                $("#td" + x).html("<span class = 'textosCampos'>" + bombasEmVolta + "</span>");
                 break;
                 
             case "quinaInferiorDireita":
@@ -162,7 +162,7 @@ $(document).ready(function() {
                 if ($("#td" + indice4).text() == "X") {
                     bombasEmVolta++;
                 }
-                $("#td" + x).text(bombasEmVolta);
+                $("#td" + x).html("<span class = 'textosCampos'>" + bombasEmVolta + "</span>");
                 break;
                 
             case "primeiraLinha":
@@ -185,7 +185,7 @@ $(document).ready(function() {
                 if ($("#td" + indice8).text() == "X") {
                     bombasEmVolta++;
                 }
-                $("#td" + x).text(bombasEmVolta);
+                $("#td" + x).html("<span class = 'textosCampos'>" + bombasEmVolta + "</span>");
                 break;
                 
             case "ultimaLinha":
@@ -208,7 +208,7 @@ $(document).ready(function() {
                 if ($("#td" + indice5).text() == "X") {
                     bombasEmVolta++;
                 }
-                $("#td" + x).text(bombasEmVolta);
+                $("#td" + x).html("<span class = 'textosCampos'>" + bombasEmVolta + "</span>");
                 break;
                 
             case "primeiraColuna":
@@ -231,7 +231,7 @@ $(document).ready(function() {
                 if ($("#td" + indice8).text() == "X") {
                     bombasEmVolta++;
                 }
-                $("#td" + x).text(bombasEmVolta);
+                $("#td" + x).html("<span class = 'textosCampos'>" + bombasEmVolta + "</span>");
                 break;
                 
             case "ultimaColuna":
@@ -254,7 +254,7 @@ $(document).ready(function() {
                 if ($("#td" + indice7).text() == "X") {
                     bombasEmVolta++;
                 }
-                $("#td" + x).text(bombasEmVolta);
+                $("#td" + x).html("<span class = 'textosCampos'>" + bombasEmVolta + "</span>");
                 break;
                 
             case "campoDoMeio":
@@ -289,7 +289,7 @@ $(document).ready(function() {
                 if ($("#td" + indice8).text() == "X") {
                     bombasEmVolta++;
                 }
-                $("#td" + x).text(bombasEmVolta);
+                $("#td" + x).html("<span class = 'textosCampos'>" + bombasEmVolta + "</span>");
                 break;
         }
     }

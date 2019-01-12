@@ -27,3 +27,7 @@
 #tblCampo td:hover {
     background-color: #aaa;
 }
+
+.textosCampos {
+    color: transparent;
+}
