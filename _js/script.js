@@ -1,13 +1,13 @@
+var html = "";
+var celula = 0;
+var vetorCampos = [];
+var objCampos = {};
+var totalDeCelulas = 100;
+var totalDeMinas = 30;
+var celulasComMinas = [];
+var totalDeLinhas = 0;
+
 $(document).ready(function() {
-    var html = "";
-    var celula = 0;
-    var vetorCampos = [];
-    var objCampos = {};
-    var totalDeCelulas = 100;
-    var totalDeMinas = 30;
-    var celulasComMinas = [];
-    var totalDeLinhas = 0;
-    
     
     //Sorteia os campos que terão bombas
     for (var x = 0; x < 30; x++) {
@@ -20,7 +20,7 @@ $(document).ready(function() {
     }
     
     
-    //Declara os campos
+    //Cria o objeto e adiciona ao vetor de objetos
     for (var x = 0; x < 100; x++) {
         if (celulasComMinas.indexOf(x) == -1) {
             objCampos = {
@@ -37,7 +37,7 @@ $(document).ready(function() {
         objCampos = {};
     }
     
-    //Cria as tags <tr> e <td>
+    //Cria as tags <tr> e <td> com os campos que possuem bombas
     for (var x = 0; x < 10; x++) {
         totalDeLinhas++;
         html += "<tr>";
@@ -53,9 +53,10 @@ $(document).ready(function() {
     }
     $("#tblCampo").html(html);
 
-    celula = 0;
+    celula = "";
     
-    //Popula as tags <td>
+    
+    //Popula as tags <td> que não possuem bombas
     for (var x = 0; x < 100; x++) {
         
         //Se não tiver bombas
@@ -293,4 +294,23 @@ $(document).ready(function() {
                 break;
         }
     }
+    
+    //=============== E V E N T O S ==================
+    
+    $("#tblCampo").on("click", "td", function() {
+        var texto = $(this).text();
+        
+        if (texto == "X") {
+            for (var x = 0; x < 100; x++) {
+                if (vetorCampos[x].temBomba == true) {
+                    $("#td" + x).children("span").css("color", "red");
+                }
+            }
+        } else {
+            console.log("mostra o quadrado");
+        }
+    });
+    
+    
+    
 });
