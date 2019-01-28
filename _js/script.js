@@ -307,7 +307,7 @@ $(document).ready(function() {
                 }
             }
         } else {
-            console.log("mostra o quadrado");
+            $(this).children("span").css("color", "black");
         }
     });
     
